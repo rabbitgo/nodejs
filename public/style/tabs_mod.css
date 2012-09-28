@@ -1,0 +1,16 @@
+/* 顶部导航tab区域 */
+.mod_tabs{*zoom:1;}
+.mod_tabs:after{clear:both;height:0;display:block;content:""}
+.mod_tabs .mod_tabs_menu{float:left;height:35px;}
+.mod_tabs .mod_tabs_other{float:right;padding-right:15px;/*_margin-top:5px;*/}
+
+.mod_tabs_menu ul{/*float:left;_margin-left:-1px;*/}
+.mod_tabs_menu li{float:left;}
+.mod_tabs li a{float:left;font-size:14px;height:25px;line-height:25px;padding:5px 20px;text-decoration:none;position:relative;bottom:-1px;}
+.mod_tabs .cur_item{border-width:0 1px;}
+.mod_tabs .cur_item a{padding:5px 19px;height:26px;line-height:27px;margin-top:-1px;}
+.mod_tabs li:first-child{border-radius:5px 0 0 0;}
+.mod_tabs li .ui_sup{position:relative;top:-1px;left:2px;*vertical-align:middle;_vertical-align:3px;_top:3px;}
+
+.mod_tabs_other a{display:inline-block;margin:0 3px 0 6px;}
+.mod_tabs_other i{position:relative;top:3px;left:-4px;cursor:pointer;}

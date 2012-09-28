@@ -1,0 +1,200 @@
+/*
+ * Copy Right: Tencent ISUX
+ * Project:Qzone V6
+ * Comments:封装的常用class,类似于v5的gb_app
+ * @author Damao
+ */
+
+/*
+
+布局相关
+.left			向左浮动
+.right			向右浮动
+.clearfix		清除当前窗口的浮动
+.none			隐藏一个元素(display:none)
+.ui_hidden		隐藏一个元素(visibility:hidden)
+.ui_mask        半透明遮罩，广泛运用与图片上的信息蒙板，统一70%透明度(RGBA/ARGB全浏览器通用)
+
+边距相关
+.ui_m0			外边距0
+.ui_ml5			左外边距5px
+.ui_mr5			右外边距5px
+.ui_mlr5		左右外边距5px
+.ui_ml8			左外边距8px
+.ui_mr8			右外边距8px
+.ui_mlr8		左右外边距8px
+.ui_ml10		左外边距10px
+.ui_mr10		右外边距10px
+.ui_mlr10		左右外边距10px
+
+基本的表现解决方案
+.textoverflow		文本溢出点点点
+.noline			无下划线
+.ui_fontYahei		微软雅黑字体
+.ui_fontBold		字体加粗
+.ui_cursorPointer	鼠标手型
+.ui_icon		icon的基类
+
+页面表现元素
+.bt_tx,.bt_tx2,.bt_tx3,.bt_tx4,.bt_tx5,.bt_tx6,.bt_tx7		普通的文本按钮（历史原因，数字表示按钮内中文字符个数）
+.gb_bt			大按钮（无宽高限制）
+.gb_bt2			大按钮（无宽高限制，V6新加，带高光，渐变）
+.textinput		单行输入框
+.textarea		多行输入框
+.ui_x			关闭叉叉
+
+提醒小数字气泡
+.ui_sup			提醒小数字气泡
+.ui_sup b		提醒小数字气泡数字
+
+三角
+.ui_trig		三角基类
+.ui_trig_l		向左的三角
+.ui_trig_r		向右的三角
+.ui_trig_t		向上的三角
+.ui_trig_b		向下的三角
+
+小黄条
+.hint			小黄条
+.hint .hint_close	小黄条关闭叉叉
+
+配色api
+.c_tx			链接文本色
+.c_tx2			默认文本色
+.c_tx3			弱化文本色
+.bg			模块背景色
+.bg2			评论模块背景颜色
+.bg3			辅助背景色
+.bor			模块外边框色
+.bor2			TAB线条色
+.bor3			辅助线条色
+.bor_bg			与bg背景色相同的边框色
+.bor_bg2		与bg2背景色相同的边框色
+.bor_bg3		与bg3背景色相同的边框色
+.bg_bor			与bor边框色相同的背景色
+.bg_bor2		与bor2边框色相同的背景色
+.bg_bor3		与bor3边框色相同的背景色
+
+*/
+
+/*gb class*/
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */
+.textoverflow{display:inline-block;white-space: nowrap;word-wrap:normal;overflow: hidden;text-overflow:ellipsis;max-width:100%;vertical-align:-2px;*vertical-align:1px;_width:100%;}/*word-wrap对付IE的break-all | width因为IE6唉|vertical-align因为inline和inline-block不是一个行高*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* Webkit内核兼容CSS */
+	.textoverflow{vertical-align:0;}
+}
+.none{display:none !important;/*visibility:hidden !important;*/}/*visibility IE6可能会导致黑屏....日啊日啊日*/
+.left{float:left;}/*老的被用了,只能用这个了*/
+.right{float:right;}
+
+/*.gb_bg_iframe{opacity:0;width:100%;left:0;height:100%;position:absolute;top:0;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);}*//*全局遮挡用iframe*/
+
+/*UI libiry*/
+.ui_ico,
+.ui_icon{display:inline-block;background-repeat:no-repeat;font-size:0;overflow:hidden;-webkit-text-size-adjust:none;}/*.ui_ico 这个东西就不要用了，统一用.ui_icon 要上流 meterscao*/
+.ui_hidden{visibility:hidden !important;}
+.ui_mask {
+	background-color: rgba(0, 0, 0, 0.7);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000,endColorstr=#B2000000);
+zoom:1;color:#fff;}
+:root .ui_mask{filter:none \0;}
+.ui_mask a {color:#fff;}
+.ui_m0{margin:0}
+.ui_ml5{margin-left:5px;}
+.ui_mr5{margin-right:5px;}
+.ui_mlr5{margin-left:5px;margin-right:5px;}
+.ui_ml8{margin-left:8px;}
+.ui_mr8{margin-right:8px;}
+.ui_mlr8{margin-left:8px;margin-right:8px;}
+.ui_ml10{margin-left:10px;}
+.ui_mr10{margin-right:10px;}
+.ui_mlr10{margin-left:10px;margin-right:10px;}
+.noline,
+.noline:hover{text-decoration:none;}
+/*.ui_lastBorNone li:last-child{border-bottom:0 none}*/
+.ui_fontYahei{font-family:"Microsoft yahei";font-weight:normal;}/*damn xp | \u9ED1\u4F53 for 黑体*/
+.ui_fontBold{font-weight:bold;}
+.ui_cursorPointer{cursor:pointer;}
+.ui_avatar{position:relative;}
+.ui_avatar img{border-radius:4px;vertical-align:top; max-width:144px;}
+.ui_avatar b.offline,
+.ui_avatar b.online{font-size:0;position:absolute;right:0;bottom:0;border-width:1px 0 0 1px;border-style:solid none none solid;width:6px;height:6px;background-color:#72DB49;border-color:#FFF transparent transparent #FFF;}
+.ui_avatar b.offline{background-color:#BFC2BE;border-color:#FFF transparent transparent #FFF;}
+.ui_btn_flat{padding:2px 3px;display:inline-block;}
+.ui_btn_flat:hover{text-decoration:none;}
+.textinput{border-width:1px;border-style:solid;outline:none;cursor:text}
+.textarea{border-width:1px;border-style:solid;word-break: break-word;word-wrap: break-word;outline:none;cursor:text}
+.ui_x{cursor: pointer;display: block;font-family: simsun;font-size: 13px;font-weight: bold;height: 14px;line-height:1.333;position: absolute;right: 10px;text-align: center;top: 9px;width: 14px;zoom:1;border-radius: 1px;-webkit-text-size-adjust:none;overflow:hidden;}
+.ui_x:hover{text-decoration:none;}
+/*提醒小数字气泡*/
+.ui_sup{background-color:#FE6600;color:#FFF;padding:1px 0;font-style:normal;font-weight:bold;font-family:Tahoma;font-size:12px;line-height:12px;height:13px;display:inline-block;-webkit-text-size-adjust:none;}/* trick:chrome中文版字体无法少于12px,会造成此块无法缩放,不过去他妈的缩放*/
+.ui_sup b{background-color:#FE6600;margin:0 -1px;display:inline-block;height:13px;padding:0 3px;_position:relative;left:-1px;}
+
+
+
+/*小黄条*/
+.hint{height:auto;min-height:16px;padding:5px 25px 2px 6px;*padding:5px 18px 5px 6px;color:#646464;border:1px solid #F5E190;background-color:#FFFAE2;text-indent:0;line-height:1.6em;_zoom:1; position:relative}
+.hint a{color:#CE2200;}
+.hint .icon_hint{display:inline-block;width:15px;height:15px;margin-right:2px;vertical-align:-3px;_vertical-align:-1px;}
+.hint .icon_hint span {display:none}
+.hint .icon_hint {background-image:url(slice/core_framework/ico_warning_15x15.png);_background-image:url(slice/core_framework/ico_warning_15x15.png)}
+
+.hint .hint_close {position:absolute; right:8px; top:8px; display:block; width:9px; height:9px; overflow:hidden; font-size:0; line-height:100px; background-image:url(slice/core_framework/bg_hint_close.png);border:none}
+
+
+/*button*/
+.gb_bt,
+.gb_bt2,
+.bt_tx1,
+.bt_tx2,
+.bt_tx4,
+.bt_tx5,
+.bt_tx6,
+.bt_tx7{border-width:1px;border-style:solid;text-align:center;height:20px;line-height:18px;*line-height:16px;_line-height:19px;display:inline-block;padding-bottom:2px;overflow:hidden;}/*firefox4 safari 有文字默认左右3px | IE67默认6px日啊*/
+.gb_bt,
+.gb_bt2{padding:0 7px 2px;padding:0 10px\9;*padding:0 4px;}
+a.gb_bt,
+a.gb_bt2,
+a.bt_tx1,
+a.bt_tx2,
+a.bt_tx4,
+a.bt_tx5,
+a.bt_tx6,
+a.bt_tx7{font-family:"Simsun";display:inline-block;height:18px;padding-bottom:0;line-height:19px\9;}/*font-family:IE下中英混排垂直不对齐问题*/
+.gb_bt:hover,
+.gb_bt2:hover,
+.bt_tx1:hover,
+.bt_tx2:hover,
+.bt_tx4:hover,
+.bt_tx5:hover,
+.bt_tx6:hover,
+.bt_tx7:hover{text-decoration:none;cursor:pointer;}
+.bt_tx1{width:33px;}
+.bt_tx2{width:48px;}
+.bt_tx4{width:70px;}
+.bt_tx5{width:82px;}
+.bt_tx6{width:94px;}
+.bt_tx7{width:106px;}
+a.bt_tx1{width:31px;}/*小2px因为a的宽度不算边框*/
+a.bt_tx2{width:46px;}
+a.bt_tx4{width:68px;}
+a.bt_tx5{width:80px;}
+a.bt_tx6{width:92px;}
+a.bt_tx7{width:104px;}
+
+/*border style*/
+.bor,.tbor,.bbor,.lbor,.rbor,.bor2,.tbor2,.bbor2,.lbor2,.rbor2,.bgr,.bgr2,.bgr3,.bor3,.lbor3,.rbor3,.bbor3,.tbor3,.bor4,.lbor4,.rbor4,.bbor4,.tbor4,.bor5,.lbor5,.rbor5,.bbor5,.tbor5{border-width:1px;}
+.bor,.bgr,.bgr2,.bgr3,.bor2,.bor3,.bor4,.bor5{border-style:solid;}
+.tbor,.tbor2,.tbor3,.tbor4,.tbor5{border-style:solid none none none;}
+.bbor,.bbor2,.bbor3,.bbor4,.bbor5{border-style:none none solid none;}
+.lbor,.lbor2,.lbor3,.lbor4,.lbor5{border-style:none none none solid;}
+.rbor,.rbor2,.rbor3,.rbor4,.rbor5{border-style:none solid none none;}

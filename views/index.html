@@ -1,0 +1,15 @@
+<% include header.html %>
+<div class="inner">
+	<div class="main" id="mainCont">
+		<% for(var i = 0;i<article.length ; i++){ %>
+		<article>
+			<h4><%= article[i].title %></h4>
+			<div>
+				<p><%= article[i].content %></p>
+			</div>
+		</article>
+		<% } %>
+	</div>
+	<% include sidebar.html %>
+</div>
+<% include footer.html %>

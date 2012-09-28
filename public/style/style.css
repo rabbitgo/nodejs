@@ -1,0 +1,34 @@
+@charset "utf-8";
+/*@import url("wrap_mod.css");*/
+@import url("reset_mod.css");
+@import url("tabs_mod.css");
+@import url("btn_mod.css");
+
+
+/* adjust font-family */
+.os_winxp{font-family:Tahoma;}
+.os_mac{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3";}/*for lion*/
+.os_vista,.os_win7{font-family:Tahoma,"Microsoft Yahei"}
+
+/* adjust font-size */
+body{font-size:13px;}
+
+/* layout */
+.mod_wrap_bd .inner{padding-right:200px;*zoom:1;}
+.mod_wrap_bd .inner:after{clear:both;height:0;display:block;content:"";}
+.mod_wrap_bd .inner .main{float:left;width:100%;}
+.mod_wrap_bd .inner .sidebar{float:left;margin-right:-200px;width:200px;}
+
+/* module , not has been admitted by all */
+.mod_panel{margin-bottom:8px;*zoom:1;}
+.mod_panel:after{content:"";display:block;height:0;clear:both;}
+.mod_panel label{float:left;width:100px;text-align:right;padding-right:5px;padding-top:4px;}
+.mod_panel input{float:left;width:150px;height:18px;padding:3px 2px 1px;border:1px solid #E3E3E3;}
+
+
+.default_input{font:16px arial,sans-serif;}
+
+.mod_input{background:#FFFFFF;border:1px solid #D9D9D9;border-radius:1px;height:27px;}
+.mod_input .input_wrap{padding:0 8px;}
+.mod_input input{border:0 none;width:100%;border:0 none;padding:0;height:19px;margin-top:4px;}
+.mod_input input:focus{outline:0 none;}

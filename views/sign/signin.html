@@ -1,0 +1,45 @@
+<% include ../header.html %>
+<div class="inner">
+	<div class="main">
+		<div class="bd">
+			<div class=""></div>
+			<div class=""></div>
+			<% if(locals.error){ %>
+			<div class="error">
+				<span><%= error %></span>
+				<a href="#">&times;</a>
+			</div>
+			<% } %>
+			<section>
+				<h2>请登录</h2>
+				<fieldset>
+					<form action="/signin" method="post">
+						<div class="mod_panel">
+							<label for="name">Username or Email</label><input type="text" name="name" id="name" />
+						</div>
+						<div class="mod_panel">
+							<label for="password">Password</label><input type="password" name="password" id="password" />
+						</div>
+						<!-- <div class="mod_input">
+							<div class="input_wrap">
+								<input type="text" name="" id="" class="default_input" />
+							</div>
+						</div> -->
+						<p>
+							<input type="submit" value="登录" class="gb_bt" />
+						</p>
+						<p>
+							<label>
+								<input type="checkbox" name="" id="" />
+								<span>Remember me</span>
+							</label>
+							<a href="#">Forgot password</a>
+						</p>
+					</form>
+				</fieldset>
+			</section>
+		</div>
+	</div>
+	<% include sidebar.html %>
+</div>
+<% include ../footer.html %>

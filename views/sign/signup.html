@@ -1,0 +1,47 @@
+<% include ../header.html %>
+<div class="inner">
+	<div class="main">
+		<div class="bd">
+			<div class=""></div>
+			<div class=""></div>
+			<% if(locals.error) { %>
+			<div class="">
+				<strong><%= error %></strong>
+			</div>
+			<% } %>
+			<% if(locals.success) { %>
+			<div class="">
+				<strong><%= success %></strong>
+				<span>&times;</span>
+			</div>
+			<% } else { %>
+			<section>
+				<h2>New to this?<span>Sign up</span></h2>
+				<fieldset>
+					<form action="/signup" method="post">
+						<div class="mod_panel">
+							<label for="name">Username</label><input type="text" name="name" id="name" />
+						</div>
+						<div class="mod_panel">
+							<label for="email">Email：</label><input type="text" name="email" id="email" />
+						</div>
+						<div class="mod_panel">
+							<label for="password">Password</label><input type="password" name="password" id="password" />
+						</div>
+						<!-- <div class="mod_input">
+							<div class="input_wrap">
+								<input type="text" name="" id="" class="default_input" />
+							</div>
+						</div> -->
+						<p>
+							<input type="submit" value="Sign up" class="gb_bt" />
+						</p>
+					</form>
+				</fieldset>
+			</section>
+			<% } %>
+		</div>
+	</div>
+	<% include sidebar.html %>
+</div>
+<% include ../footer.html %>

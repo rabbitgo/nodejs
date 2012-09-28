@@ -1,0 +1,14 @@
+<% include ../header.html %>
+<div class="">
+	<% if(locals.error){ %>
+	<p>
+		<strong><%= error %></strong>
+	</p>
+	<% } %>
+	<% if(locals.success) {%>
+	<p>
+		<strong><%= success %></strong>
+	</p>
+	<% } %>
+</div>
+<% include ../footer.html %>
