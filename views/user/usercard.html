@@ -1,0 +1,19 @@
+<section>
+	<% if(!locals.current_user){ %>
+	<div>
+		<a href="/signup">现在注册</a>
+		<p>已注册用户请<a href="/signin">登录</a>
+	</div>
+	<% }else{ %>
+	<div>
+		<div class="mod_img">
+			<div class="pic_wrap">
+				<a href="#"><img src="http://qlogo1.store.qq.com/qzone/282259696/282259696/30" alt="" title="" /></a>
+			</div>
+			<div class="txt_details">
+				<p><%= current_user.name %></p>
+			</div>
+		</div>
+	</div>
+	<% } %>
+</section>

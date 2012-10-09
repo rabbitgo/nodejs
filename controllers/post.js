@@ -6,7 +6,23 @@
 var models = require('../models'),
 	Article = models.Article;
 
+//
+exports.index = function(req ,res ,next){
+	var article_id = req.params.tid;
+	if(article_id.length !== 24){
+		return res.render("notify/notify",{error:'文章不存在或者已被删除'});
+	}
+}
+
+
+//add a new article
 exports.add = function(req ,res ,next){
+	//publish a article must have been logged in
+	if(!req.session.user){
+		res.render('notify/notify' , {error :'未登录用户不能发表文章'});
+		return;
+	}
+
 	var method = req.method.toLowerCase();
 
 	if(method === 'get'){

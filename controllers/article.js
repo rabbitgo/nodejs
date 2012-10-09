@@ -11,14 +11,13 @@ exports.index = function(req , res ,next){
 };
 
 function get_post_by_query(query , opt , cb){
-	Article.find(query , opt ,function(err , docs){
-
-	});
+	Article.find(query , {} , opt , cb);
 }
 
-/*function get_all_posts(){
-	Article.find();
-}*/
+function get_posts_by_page(query, opt , cb){
+	var skipData = (page-1)*limit;
+	Article.find().skip(skipData).limit(limit).sort({'_id':-1});
+}
 
 function get_post_by_id(id , cb){
 	Article.findOne({_id : id} , cb);

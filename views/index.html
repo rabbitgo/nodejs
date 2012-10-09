@@ -1,14 +1,24 @@
 <% include header.html %>
 <div class="inner">
 	<div class="main" id="mainCont">
-		<% for(var i = 0;i<article.length ; i++){ %>
-		<article>
-			<h4><%= article[i].title %></h4>
-			<div>
-				<p><%= article[i].content %></p>
+		<div class="hd">
+			<% if(locals.current_user){ %>
+			<div class="entry_wrap"><a href="/article/add">写文章</a></div>
+			<% } %>
+		</div>
+		<div class="bd">
+			<% if(article.length > 0){ %>
+			<% include posts/list.html %>
+			<% }else{ %>
+			<div class="empty_data">
+				<% if(!locals.current_user){ %>
+				<p>暂时还没有文章</p>
+				<% }else{ %>
+				<p>还没有文章，赶快去<a href="/article/add">发表文章</a></p>
+				<% } %>
 			</div>
-		</article>
-		<% } %>
+			<% } %>
+		</div>
 	</div>
 	<% include sidebar.html %>
 </div>

@@ -9,7 +9,7 @@ var config = require('../config').config,
 
 exports.index = function(req , res ,next){
 	var limit = config.list_article_count;
-	Article.find({},function(err, article){
+	Article.find({}, function(err, article){
 		if(err){
 			return next(err);
 		}

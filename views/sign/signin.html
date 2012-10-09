@@ -11,7 +11,7 @@
 			</div>
 			<% } %>
 			<section>
-				<h2>请登录</h2>
+				<h2><a href="#">请登录</a></h2>
 				<fieldset>
 					<form action="/signin" method="post">
 						<div class="mod_panel">
@@ -25,16 +25,18 @@
 								<input type="text" name="" id="" class="default_input" />
 							</div>
 						</div> -->
-						<p>
-							<input type="submit" value="登录" class="gb_bt" />
-						</p>
-						<p>
-							<label>
-								<input type="checkbox" name="" id="" />
-								<span>Remember me</span>
-							</label>
-							<a href="#">Forgot password</a>
-						</p>
+						<div class="">
+							<p class="forget_info">
+								<label>
+									<input type="checkbox" name="" id="" />
+									<span>Remember me</span>
+								</label>
+								<a href="#">Forgot password</a>
+							</p>
+							<p class="submit">
+								<input type="submit" value="登录" class="gb_bt" />
+							</p>
+						</div>
 					</form>
 				</fieldset>
 			</section>

@@ -1,0 +1,10 @@
+
+<% for(var i = 0;i< article.length ; i++){ %>
+	<article class="mod_article">
+		<h2><a href="/article/<%= article[i]._id  %>"><%= article[i].title %></a></h2>
+		<div class="conts">
+			<p><%= article[i].content %></p>
+			<p><%= article[i] %></p>
+		</div>
+	</article>
+<% } %>

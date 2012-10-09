@@ -31,7 +31,8 @@ module.exports = function(app){
 	//app.get('/init',init.index);
 
 	//app.get('/article' , article.);
-	app.get('/add' , post.add);
-	app.post('/add', post.add);
+	app.get('/article/add' , post.add);
+	app.post('/article/add', post.add);
 
+	app.get('/article/:tid' , post.index);
 };
